@@ -1,0 +1,62 @@
+<section class="section github-section" aria-labelledby="github-title">
+  <div class="github-main" appReveal>
+    <p class="section-kicker">06 / IN THE OPEN</p>
+    <h2 id="github-title">Where ideas<br />meet <span>iteration.</span></h2>
+    <p class="github-description">
+      A look at what I’m exploring, building, and learning in public.
+    </p>
+    <a class="github-profile" href="https://github.com/Prakruthi0154" target="_blank" rel="noopener noreferrer">
+      Explore my GitHub <span aria-hidden="true">↗</span>
+    </a>
+    @if (github.data(); as data) {
+      <div class="github-stats">
+        <div><strong>{{ data.user.public_repos }}</strong><span>public repositories</span></div>
+        <div><strong>{{ data.user.followers }}</strong><span>followers</span></div>
+        <div><strong>{{ data.recentPublicEvents }}</strong><span>recent public events</span></div>
+      </div>
+    }
+  </div>
+  <div class="github-panel" appReveal>
+    <div class="panel-top">
+      <div class="panel-title"><span class="github-mark">⌘</span><div><strong>GitHub activity</strong><small>Recent public repositories</small></div></div>
+      <span class="live-label"><i></i> LIVE</span>
+    </div>
+    @if (github.loading()) {
+      <div class="github-loading" role="status"><span class="loading-spinner"></span> Fetching public profile…</div>
+    } @else if (github.error()) {
+      <p class="github-message" role="status">{{ github.error() }}</p>
+    } @else if (github.data(); as data) {
+      <div class="repo-list">
+        @for (repository of data.repositories; track repository.id) {
+          <a class="repo-card" [href]="repository.html_url" target="_blank" rel="noopener noreferrer">
+            <span class="repo-icon">⌘</span>
+            <span class="repo-info"><strong>{{ repository.name }}</strong><small>{{ repository.description || 'A project in progress.' }}</small></span>
+            <span class="repo-meta">
+              @if (repository.language) { <span class="repo-language"><i></i>{{ repository.language }}</span> }
+              <span>★ {{ repository.stargazers_count }}</span>
+            </span>
+          </a>
+        } @empty {
+          <p class="github-message">No public repositories to display just yet.</p>
+        }
+      </div>
+      @if (data.languages.length) {
+        <div class="language-panel">
+          <div class="language-heading"><strong>Languages in recent repositories</strong><span>PUBLIC DATA</span></div>
+          <div class="language-bars">
+            @for (language of data.languages; track language.name) {
+              <span [style.width.%]="languageWidth(language.count, data.languages)" [attr.aria-label]="language.name"></span>
+            }
+          </div>
+          <div class="language-legend">
+            @for (language of data.languages; track language.name) {
+              <span><i></i>{{ language.name }}</span>
+            }
+          </div>
+        </div>
+      }
+    } @else {
+      <p class="github-message">GitHub profile data has not loaded.</p>
+    }
+  </div>
+</section>

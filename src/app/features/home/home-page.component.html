@@ -1,0 +1,22 @@
+<div class="scroll-progress" [style.width.%]="scrollProgress()" aria-hidden="true"></div>
+<a class="skip-link" href="#main-content">Skip to content</a>
+<app-site-header />
+<main id="main-content">
+  <app-hero />
+  <div class="page-container">
+    <app-about />
+    <app-skills />
+    <app-journey />
+    <app-projects />
+    <app-learning />
+    <app-github />
+    <app-education />
+    <app-contact />
+  </div>
+</main>
+<div class="page-container"><app-site-footer /></div>
+@if (showBackToTop()) {
+  <button class="back-to-top" type="button" (click)="scrollToTop()" aria-label="Back to top">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 14 6-6 6 6"></path></svg>
+  </button>
+}

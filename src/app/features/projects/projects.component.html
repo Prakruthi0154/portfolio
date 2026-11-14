@@ -1,0 +1,42 @@
+<section class="section project-section" id="work" aria-labelledby="project-title">
+  <div class="project-heading" appReveal>
+    <p class="section-kicker">04 / SELECTED WORK</p>
+    <h2 id="project-title">Quality in the<br /><span>real world.</span></h2>
+    <p>One end-to-end case study in asking the right questions across a complete user journey.</p>
+  </div>
+  <article class="case-study" appReveal>
+    <div class="case-top">
+      <div>
+        <div class="case-label"><span></span> QA CASE STUDY · E-COMMERCE</div>
+        <h3>E-Commerce Quality<br />Assurance Case Study</h3>
+      </div>
+      <span class="case-icon" aria-hidden="true">⌁</span>
+    </div>
+    <div class="case-challenge">
+      <span class="case-overline">THE CHALLENGE</span>
+      <p>Validate the critical workflows of an online shopping platform—from the first search to the final order.</p>
+    </div>
+    <div class="case-details">
+      <div class="case-column">
+        <span class="case-overline">FOCUS AREAS</span>
+        <ul class="case-tags">
+          @for (area of focusAreas; track area) {
+            <li>{{ area }}</li>
+          }
+        </ul>
+      </div>
+      <div class="case-column">
+        <span class="case-overline">CONTRIBUTIONS</span>
+        <ul class="contribution-list">
+          @for (contribution of contributions; track contribution) {
+            <li><span>✓</span>{{ contribution }}</li>
+          }
+        </ul>
+      </div>
+    </div>
+    <div class="case-outcome">
+      <span class="outcome-mark" aria-hidden="true">↗</span>
+      <p><strong>THE OUTCOME</strong> Demonstrated a systematic QA approach across major business workflows.</p>
+    </div>
+  </article>
+</section>

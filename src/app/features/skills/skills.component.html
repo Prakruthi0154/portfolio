@@ -1,0 +1,29 @@
+<section class="section skills-section" id="skills" aria-labelledby="skills-title">
+  <div class="section-topline" appReveal>
+    <div>
+      <p class="section-kicker">02 / THE TOOLKIT</p>
+      <h2 id="skills-title">Tools for thoughtful<br /><span>quality engineering.</span></h2>
+    </div>
+    <p class="section-aside">A growing toolkit, built through practice and curiosity.</p>
+  </div>
+  <div class="skill-grid">
+    @for (group of groups; track group.code) {
+      <article class="skill-card" appReveal>
+        <div class="skill-card-top">
+          <span>{{ group.code }}</span>
+          <span class="skill-orbit" aria-hidden="true">↗</span>
+        </div>
+        <h3>{{ group.title }}</h3>
+        <div class="skill-meter" role="img" [attr.aria-label]="group.title + ': ' + group.level">
+          <span [style.--meter]="group.meter"></span>
+        </div>
+        <div class="skill-level"><span>{{ group.level }}</span><span>in progress</span></div>
+        <ul class="skill-tags">
+          @for (skill of group.skills; track skill) {
+            <li>{{ skill }}</li>
+          }
+        </ul>
+      </article>
+    }
+  </div>
+</section>

@@ -1,0 +1,55 @@
+:host {
+  display: block;
+}
+
+.scroll-progress {
+  position: fixed;
+  z-index: 30;
+  top: 0;
+  left: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--purple), var(--blue));
+  box-shadow: 0 0 10px var(--blue);
+  transition: width 80ms linear;
+}
+
+.page-container {
+  width: min(1060px, calc(100% - 48px));
+  margin-inline: auto;
+}
+
+.back-to-top {
+  position: fixed;
+  z-index: 15;
+  right: 24px;
+  bottom: 24px;
+  display: grid;
+  width: 44px;
+  height: 44px;
+  place-items: center;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: var(--surface-raised);
+  box-shadow: 0 8px 26px #00000020;
+  cursor: pointer;
+}
+
+.back-to-top svg {
+  width: 18px;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.8;
+}
+
+@media (max-width: 640px) {
+  .page-container {
+    width: min(100% - 36px, 560px);
+  }
+
+  .back-to-top {
+    right: 16px;
+    bottom: 16px;
+  }
+}

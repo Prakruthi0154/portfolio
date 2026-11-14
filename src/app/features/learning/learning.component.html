@@ -1,0 +1,19 @@
+<section class="section learning-section" aria-labelledby="learning-title">
+  <div class="learning-heading" appReveal>
+    <div>
+      <p class="section-kicker">05 / ALWAYS LEARNING</p>
+      <h2 id="learning-title">Curiosity is part<br />of the <span>process.</span></h2>
+    </div>
+    <p>Growing one deliberate experiment at a time.</p>
+  </div>
+  <div class="learning-grid">
+    @for (topic of topics; track topic.code) {
+      <article class="learning-card" [class]="topic.tone" appReveal>
+        <span class="learning-code">{{ topic.code }} / LEARNING</span>
+        <div class="learning-decoration" aria-hidden="true"><span></span><i></i><b></b></div>
+        <h3>{{ topic.title }}</h3>
+        <span class="learning-arrow" aria-hidden="true">↗</span>
+      </article>
+    }
+  </div>
+</section>

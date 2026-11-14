@@ -1,0 +1,20 @@
+<section class="section journey-section" id="journey" aria-labelledby="journey-title">
+  <div class="journey-intro" appReveal>
+    <p class="section-kicker">03 / THE JOURNEY</p>
+    <h2 id="journey-title">From curiosity<br />to <span>confidence.</span></h2>
+    <p>Every phase adds a new lens for asking better questions about software.</p>
+  </div>
+  <ol class="journey-list">
+    @for (phase of phases; track phase.number) {
+      <li class="journey-step" appReveal>
+        <div class="step-number">{{ phase.number }}</div>
+        <div class="step-copy">
+          <span class="step-tag">{{ phase.tag }}</span>
+          <h3>{{ phase.title }}</h3>
+          <p>{{ phase.description }}</p>
+        </div>
+        <span class="step-arrow" aria-hidden="true">↗</span>
+      </li>
+    }
+  </ol>
+</section>
